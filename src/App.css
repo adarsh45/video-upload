@@ -1,8 +1,9 @@
 .container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
+  align-items: flex-start;
   justify-content: center;
+  gap: 1rem;
 }
 
 .drop-container {
@@ -57,4 +58,17 @@
   100% {
     transform: rotate(360deg);
   }
+}
+
+.plate {
+  background: #d6ad0c;
+  padding: 0.25em 1em;
+  font-weight: bold;
+  font-size: 2em;
+  border-radius: 5px;
+  border: 1px solid #000;
+  margin: 0.6rem auto;
+  /* box-shadow: 1px 1px 1px #ddd; */
+  /* position: relative; */
+  font-family: helvetica, ariel, sans-serif;
 }
