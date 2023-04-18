@@ -17,7 +17,7 @@ function App() {
     formData.append("video", selectedFile);
 
     // console.log(selectedFile);
-    fetch("/upload-video", {
+    fetch("https://9dca-103-82-43-56.ngrok-free.app/uploadvideo", {
       method: "POST",
       body: formData,
     })
@@ -49,7 +49,7 @@ function App() {
         <input
           type="file"
           id="vidoes"
-          accept="image/*"
+          accept="*/*"
           required
           onChange={handleFileSelect}
         />
