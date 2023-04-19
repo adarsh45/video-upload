@@ -3,7 +3,6 @@ import "./upload.css";
 import axios from "axios";
 import Header from "../components/Header";
 import { isImage, isVideo } from "../utils/functions";
-import LiveCamera from "./LiveCamera";
 import ResultPlates from "../components/ResultPlates";
 
 function Upload() {
