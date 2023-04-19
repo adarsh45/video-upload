@@ -1,4 +1,4 @@
-.container {
+.play-container {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
@@ -18,7 +18,7 @@
   padding: 20px;
   border-radius: 10px;
   border: 2px dashed #555;
-  color: rgba(255, 255, 255, 0.87);
+  /* color: rgba(255, 255, 255, 0.87); */
   cursor: pointer;
   transition: background 0.2s ease-in-out, border 0.2s ease-in-out;
 }
@@ -29,11 +29,11 @@
 }
 
 .drop-container:hover .drop-title {
-  color: rgba(255, 255, 255, 0.87);
+  /* color: rgba(255, 255, 255, 0.87); */
 }
 
 .drop-title {
-  color: rgba(255, 255, 255, 0.87);
+  /* color: rgba(255, 255, 255, 0.87); */
 
   font-size: 20px;
   font-weight: bold;
