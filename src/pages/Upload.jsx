@@ -89,14 +89,9 @@ function Upload() {
           <div className="text-center col-md">
             <h3>Preview</h3>
             {fileType === "video" ? (
-              <video
-                controls
-                src={url}
-                style={{ height: "360px" }}
-                muted
-              ></video>
+              <video controls src={url} style={{ width: "100%" }} muted></video>
             ) : fileType === "image" ? (
-              <img src={url} style={{ height: "360px" }} />
+              <img src={url} style={{ width: "100%" }} />
             ) : (
               ""
             )}

@@ -61,13 +61,15 @@
 }
 
 .plate {
-  background: #d6ad0c;
+  background-color: #212529;
+  color: white;
   padding: 0.25em 1em;
   font-weight: bold;
   font-size: 2em;
   border-radius: 5px;
-  border: 1px solid #000;
+  /* border: 1px solid #000; */
   margin: 0.6rem auto;
+  letter-spacing: 1px;
   /* box-shadow: 1px 1px 1px #ddd; */
   /* position: relative; */
   font-family: helvetica, ariel, sans-serif;

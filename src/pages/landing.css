@@ -26,3 +26,9 @@
   color: white;
   border-radius: 50%;
 }
+
+.photo {
+  width: 196px;
+  height: 224px;
+  border-radius: 12px;
+}

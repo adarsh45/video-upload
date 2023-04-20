@@ -2,6 +2,7 @@ import React, { useRef, useEffect, useState } from "react";
 import Webcam from "react-webcam";
 import Header from "../components/Header";
 import ResultPlates from "../components/ResultPlates";
+import Footer from "../components/Footer";
 
 const LiveCamera = () => {
   const webcamRef = useRef(null);
@@ -51,8 +52,7 @@ const LiveCamera = () => {
                 audio={false}
                 ref={webcamRef}
                 screenshotFormat="image/jpeg"
-                width={640}
-                height={480}
+                width="100%"
               />
             ) : (
               ""

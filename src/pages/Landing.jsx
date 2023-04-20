@@ -1,6 +1,11 @@
 import React from "react";
 import "./landing.css";
 import Header from "../components/Header";
+import AmeyaPhoto from "../assets/ameya.jpeg";
+import PragatiPhoto from "../assets/pragati.jpeg";
+import ShreePhoto from "../assets/shree.jpeg";
+import YashPhoto from "../assets/yash.jpeg";
+import Footer from "../components/Footer";
 
 function Landing() {
   return (
@@ -60,13 +65,29 @@ function Landing() {
           </div>
         </div>
 
-        <div className="row">
-          <div className="col-md-3"></div>
-          <div className="col-md-3"></div>
-          <div className="col-md-3"></div>
-          <div className="col-md-3"></div>
+        <div className="container my-4">
+          <h2 className="text-center py-4">Our Team</h2>
+          <div className="row py-4">
+            <div className="col-md text-center">
+              <img src={YashPhoto} alt="photo" className="photo" />
+              <h5 className="p-2">Yash</h5>
+            </div>
+            <div className="col-md text-center">
+              <img src={AmeyaPhoto} alt="photo" className="photo" />
+              <h5 className="p-2">Ameya</h5>
+            </div>
+            <div className="col-md text-center">
+              <img src={PragatiPhoto} alt="photo" className="photo" />
+              <h5 className="p-2">Pragati</h5>
+            </div>
+            <div className="col-md text-center">
+              <img src={ShreePhoto} alt="photo" className="photo" />
+              <h5 className="p-2">Shree</h5>
+            </div>
+          </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }
