@@ -9,7 +9,7 @@ function Upload() {
   const [selectedFile, setSelectedFile] = useState(null);
   const [isUploading, setIsUploading] = useState(false);
   const [fileType, setFileType] = useState("");
-  const [detectedPlates, setDetectedPlates] = useState(["RJ20CD5030"]);
+  const [detectedPlates, setDetectedPlates] = useState([]);
   const [url, setURL] = useState("");
 
   const handleFileSelect = (event) => {
@@ -34,7 +34,7 @@ function Upload() {
 
     // console.log(selectedFile);
     axios
-      .post(`${process.env.REACT_APP_BACKEND_URL}/uploadvideo`, formData)
+      .post(`${import.meta.env.VITE_BACKEND_URL}/uploadvideo`, formData)
       .then((response) => {
         // handle response
         console.log(response);

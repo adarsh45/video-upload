@@ -7,7 +7,7 @@ import axios from "axios";
 const LiveCamera = () => {
   const webcamRef = useRef(null);
   const [isWebcamOn, setIsWebcamOn] = useState(false);
-  const [detectedPlates, setDetectedPlates] = useState(["TN07CM4123"]);
+  const [detectedPlates, setDetectedPlates] = useState([]);
 
   const toggleWebcam = () => setIsWebcamOn((prev) => !prev);
 
@@ -15,12 +15,19 @@ const LiveCamera = () => {
     if (isWebcamOn) {
       const interval = setInterval(() => {
         const imgSrc = captureFrame();
+        console.log(imgSrc);
         if (imgSrc) {
+          const formData = new FormData();
+          formData.append("video", imgSrc);
           axios
-            .get("https://jsonplaceholder.typicode.com/users")
+            .post(`${import.meta.env.VITE_BACKEND_URL}/detectlive`, formData)
             .then((res) => {
-              if (res.status === 200 && res?.data?.plates?.length) {
-                setDetectedPlates([...detectedPlates, res.data.plates]);
+              if (res.status === 200) {
+                if (res?.data?.plates?.length) {
+                  setDetectedPlates([...detectedPlates, res.data.plates]);
+                }
+              } else {
+                console.error("Something went wrong");
               }
             })
             .catch((err) => {

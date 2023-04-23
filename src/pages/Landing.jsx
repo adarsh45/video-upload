@@ -82,7 +82,7 @@ function Landing() {
             </div>
             <div className="col-md text-center">
               <img src={ShreePhoto} alt="photo" className="photo" />
-              <h5 className="p-2">Shree</h5>
+              <h5 className="p-2">Shreeniket</h5>
             </div>
           </div>
         </div>
