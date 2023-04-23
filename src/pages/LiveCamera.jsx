@@ -2,11 +2,10 @@ import React, { useRef, useEffect, useState } from "react";
 import Webcam from "react-webcam";
 import Header from "../components/Header";
 import ResultPlates from "../components/ResultPlates";
-import Footer from "../components/Footer";
+import axios from "axios";
 
 const LiveCamera = () => {
   const webcamRef = useRef(null);
-  const [currentFrame, setCurrentFrame] = useState(null);
   const [isWebcamOn, setIsWebcamOn] = useState(false);
   const [detectedPlates, setDetectedPlates] = useState(["TN07CM4123"]);
 
@@ -15,20 +14,29 @@ const LiveCamera = () => {
   useEffect(() => {
     if (isWebcamOn) {
       const interval = setInterval(() => {
-        if (!captureFrame()) clearInterval(interval);
+        const imgSrc = captureFrame();
+        if (imgSrc) {
+          axios
+            .get("https://jsonplaceholder.typicode.com/users")
+            .then((res) => {
+              if (res.status === 200 && res?.data?.plates?.length) {
+                setDetectedPlates([...detectedPlates, res.data.plates]);
+              }
+            })
+            .catch((err) => {
+              console.error(err);
+            });
+        }
       }, 1000);
       return () => clearInterval(interval);
     }
   }, [isWebcamOn]);
 
   const captureFrame = () => {
-    if (!isWebcamOn) {
-      alert("Please turn on the webcam!");
-      return false;
-    }
-    // const imageSrc = webcamRef.current.getScreenshot();
-    console.log("imageSrc");
-    return true;
+    if (!webcamRef.current) return false;
+    const imageSrc = webcamRef.current.getScreenshot();
+    // console.log(imageSrc);
+    return imageSrc;
     // setCurrentFrame(imageSrc);
     // requestAnimationFrame(captureFrame);
   };
